@@ -1,9 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
+import React, { useEffect } from 'react';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 // import { StackScreenProps } from '@react-navigation/stack';
-import React, { useEffect } from 'react';
 import { View, Text, Button, TouchableOpacity } from 'react-native';
-import { styles } from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { colors, styles } from '../theme/appTheme';
 
 // interface Props extends StackScreenProps<any, any> { }
 interface Props extends DrawerScreenProps<any, any> { }
@@ -13,10 +14,14 @@ export const Pagina1Screen = ({ navigation }: Props) => {
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <Button
-          title="Menu"
+        <TouchableOpacity
           onPress={(() => navigation.toggleDrawer())}
-        />
+          style={{ marginLeft: 10 }}
+        >
+          <Text>
+            <Icon name="bars" size={30} color={colors.primary} />;
+          </Text>
+        </TouchableOpacity>
       ),
     });
   }, [navigation]);
@@ -35,12 +40,20 @@ export const Pagina1Screen = ({ navigation }: Props) => {
           onPress={() => navigation.navigate('PersonaScreen', { id: 1, nombre: 'sebas' })}
           style={[styles.buttonTouch, { backgroundColor: '#2A9EED' }]}
         >
-          <Text style={styles.textButtonTouch}>Persona Sebas</Text>
+          <Text>
+            <Icon name="male" size={30} color="white" />
+          </Text>
+          <Text style={styles.textButtonTouch}>
+            Persona Sebas
+            </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('PersonaScreen', { id: 2, nombre: 'Maria' })}
           style={[styles.buttonTouch, { backgroundColor: '#58EE94' }]}
         >
+          <Text>
+            <Icon name="female" size={30} color="white" />
+          </Text>
           <Text style={styles.textButtonTouch}>Persona Maria</Text>
         </TouchableOpacity>
       </View>

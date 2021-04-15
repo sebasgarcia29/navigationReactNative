@@ -1,5 +1,15 @@
 import { StyleSheet } from 'react-native';
 
+export const colors = {
+  primary: '#460436',
+  facebook: '#4A69A8',
+  twitter: '#5AAEEC',
+  instagram: '#C63486',
+  facebookMessenger: '#5967FB',
+  googlePlus: '#D1443D',
+  airbnb: '#FD5C63',
+};
+
 export const styles = StyleSheet.create({
   globalMargin: {
     marginHorizontal: 20,
@@ -21,6 +31,7 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   avatarContainer: {
     // backgroundColor: '#C4D3D5',
